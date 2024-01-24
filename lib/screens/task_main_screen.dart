@@ -1,6 +1,5 @@
-// ignore_for_file: file_names
-
 import 'package:flutter/material.dart';
+import 'package:dropdown_button2/dropdown_button2.dart';
 
 class MainTaskScreen extends StatefulWidget {
   const MainTaskScreen({super.key});
@@ -10,12 +9,19 @@ class MainTaskScreen extends StatefulWidget {
 }
 
 class _MainTaskScreenState extends State<MainTaskScreen> {
+  final List<String> items = [
+    'Item1',
+    'Item2',
+    'Item3',
+    'Item4',
+  ];
+  String? selectedValue;
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Container(
-        color: const Color.fromARGB(255, 153, 153, 153),
-        child: SizedBox(
+      child: Scaffold(
+        body: Container(
+          color: const Color(0xffe9dff4),
           height: MediaQuery.of(context).size.height * 85,
           child: Column(
             children: [
@@ -32,7 +38,7 @@ class _MainTaskScreenState extends State<MainTaskScreen> {
                       onPressed: () {},
                       child: const Icon(
                         Icons.chevron_left_outlined,
-                        size: 38.0,
+                        size: 28.0,
                         color: Color(0xff5e5d61),
                       ),
                     ),
@@ -82,13 +88,39 @@ class _MainTaskScreenState extends State<MainTaskScreen> {
               ),
               SizedBox(
                 width: MediaQuery.of(context).size.width,
-                height: MediaQuery.of(context).size.height * 0.20,
-                child: const Row(
+                height: MediaQuery.of(context).size.height * 0.25,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(
-                      "Task Statistics",
-                      style: TextStyle(fontSize: 23, color: Colors.black),
-                    )
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width * 0.32,
+                      height: MediaQuery.of(context).size.height * 0.20,
+                      child: const Padding(
+                        padding: EdgeInsets.only(top: 18.0),
+                        child: Text(
+                          "Task Statistics",
+                          style: TextStyle(
+                              fontSize: 20,
+                              color: Colors.black,
+                              decoration: TextDecoration.none),
+                        ),
+                      ),
+                    ),
+                    DropdownButton2(
+                      hint: const Text("Monthly"),
+                      value: selectedValue,
+                      onChanged: (value) => setState(() {
+                        selectedValue = value;
+                      }),
+                      items: items
+                          .map(
+                            (item) => DropdownMenuItem(
+                              value: item,
+                              child: Text(item),
+                            ),
+                          )
+                          .toList(),
+                    ),
                   ],
                 ),
               )
