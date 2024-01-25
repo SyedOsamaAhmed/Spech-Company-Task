@@ -20,7 +20,7 @@ class BarGraph extends StatelessWidget {
     );
     data.initializeBarData(taskStats);
     print(taskStats);
-    // print(BarChartRodData(toY: double.parse(taskStats[0])));
+    print(double.parse("100%"));
     return SizedBox(
       width: MediaQuery.of(context).size.width,
       height: MediaQuery.of(context).size.height * 0.55,
