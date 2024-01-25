@@ -136,8 +136,8 @@ class _MainTaskScreenState extends State<MainTaskScreen> {
                   ],
                 ),
               ),
-              const BarGraph(
-                taskStats: [],
+              BarGraph(
+                taskStats: taskStats,
               ),
             ],
           ),

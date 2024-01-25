@@ -20,6 +20,7 @@ class BarGraph extends StatelessWidget {
     );
     data.initializeBarData(taskStats);
     print(taskStats);
+    // print(BarChartRodData(toY: double.parse(taskStats[0])));
     return SizedBox(
       width: MediaQuery.of(context).size.width,
       height: MediaQuery.of(context).size.height * 0.55,
@@ -27,11 +28,12 @@ class BarGraph extends StatelessWidget {
         BarChartData(
           maxY: 100.0,
           minY: 0.0,
-          barGroups: data.barData
-              .map((data) => BarChartGroupData(
-                  x: int.parse(data.months),
-                  barRods: BarChartRodData(toY: double.parse(data.taskStats))))
-              .toList(),
+          // barGroups: data.barData
+          //     .map((data) => BarChartGroupData(
+          //         x: int.parse(data.months),
+          //         barRods:
+          //             BarChartRodData(toY: double.parse(data.taskStats[0]))))
+          //     .toList(),
         ),
         swapAnimationDuration: const Duration(milliseconds: 150),
         swapAnimationCurve: Curves.bounceOut,
