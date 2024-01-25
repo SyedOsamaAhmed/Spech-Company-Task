@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
+import 'package:spech_interview_task/widgets/bar_graph.dart';
 
 class MainTaskScreen extends StatefulWidget {
   const MainTaskScreen({super.key});
@@ -9,12 +10,15 @@ class MainTaskScreen extends StatefulWidget {
 }
 
 class _MainTaskScreenState extends State<MainTaskScreen> {
-  final List<String> items = [
-    'Item1',
-    'Item2',
-    'Item3',
-    'Item4',
+  final List<String> months = [
+    'Jan',
+    'Feb',
+    'March',
+    'April',
   ];
+
+  List<String> taskStats = ["75%", "90%", "73%", "30%"];
+
   String? selectedValue;
   @override
   Widget build(BuildContext context) {
@@ -90,7 +94,7 @@ class _MainTaskScreenState extends State<MainTaskScreen> {
                 width: MediaQuery.of(context).size.width,
                 height: MediaQuery.of(context).size.height * 0.25,
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     SizedBox(
                       width: MediaQuery.of(context).size.width * 0.32,
@@ -112,7 +116,7 @@ class _MainTaskScreenState extends State<MainTaskScreen> {
                       onChanged: (value) => setState(() {
                         selectedValue = value;
                       }),
-                      items: items
+                      items: months
                           .map(
                             (item) => DropdownMenuItem(
                               value: item,
@@ -120,10 +124,21 @@ class _MainTaskScreenState extends State<MainTaskScreen> {
                             ),
                           )
                           .toList(),
+                      buttonStyleData: ButtonStyleData(
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(30.0),
+                            border: Border.all(
+                              style: BorderStyle.none,
+                            ),
+                            color: Colors.white),
+                      ),
                     ),
                   ],
                 ),
-              )
+              ),
+              const BarGraph(
+                taskStats: [],
+              ),
             ],
           ),
         ),
