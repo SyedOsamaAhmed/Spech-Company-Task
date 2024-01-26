@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:dropdown_button2/dropdown_button2.dart';
+
 import 'package:spech_interview_task/widgets/bar_graph.dart';
+import 'package:spech_interview_task/widgets/dropdown_menu.dart';
 
 class MainTaskScreen extends StatefulWidget {
   const MainTaskScreen({super.key});
@@ -10,16 +11,6 @@ class MainTaskScreen extends StatefulWidget {
 }
 
 class _MainTaskScreenState extends State<MainTaskScreen> {
-  final List<String> months = [
-    'Jan',
-    'Feb',
-    'March',
-    'April',
-  ];
-
-  List<String> taskStats = ["75%", "90%", "73%", "30%"];
-
-  String? selectedValue;
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -110,35 +101,11 @@ class _MainTaskScreenState extends State<MainTaskScreen> {
                         ),
                       ),
                     ),
-                    DropdownButton2(
-                      hint: const Text("Monthly"),
-                      value: selectedValue,
-                      onChanged: (value) => setState(() {
-                        selectedValue = value;
-                      }),
-                      items: months
-                          .map(
-                            (item) => DropdownMenuItem(
-                              value: item,
-                              child: Text(item),
-                            ),
-                          )
-                          .toList(),
-                      buttonStyleData: ButtonStyleData(
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(30.0),
-                            border: Border.all(
-                              style: BorderStyle.none,
-                            ),
-                            color: Colors.white),
-                      ),
-                    ),
+                    const DropDownMenu(),
                   ],
                 ),
               ),
-              BarGraph(
-                taskStats: taskStats,
-              ),
+              const BarGraph(),
             ],
           ),
         ),
