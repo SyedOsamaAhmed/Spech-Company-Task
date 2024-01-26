@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'package:spech_interview_task/widgets/bar_graph.dart';
 import 'package:spech_interview_task/widgets/dropdown_menu.dart';
 
 class MainTaskScreen extends StatefulWidget {
@@ -11,6 +10,7 @@ class MainTaskScreen extends StatefulWidget {
 }
 
 class _MainTaskScreenState extends State<MainTaskScreen> {
+  List<String> taskStats = ["Jan", "Feb", "Mar", "Apr"];
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -105,7 +105,6 @@ class _MainTaskScreenState extends State<MainTaskScreen> {
                   ],
                 ),
               ),
-              const BarGraph(),
             ],
           ),
         ),
