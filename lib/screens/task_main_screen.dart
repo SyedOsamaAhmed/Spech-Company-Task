@@ -131,12 +131,9 @@ class _MainTaskScreenState extends State<MainTaskScreen> {
                 ),
               ),
               SizedBox(
-                  width: MediaQuery.of(context).size.width,
+                  width: MediaQuery.of(context).size.width * 0.90,
                   height: MediaQuery.of(context).size.height * 0.50,
-                  child: Padding(
-                    padding: const EdgeInsets.only(bottom: 18.0),
-                    child: BarGraph(taskStatsPercents: taskStatsPercentages),
-                  )),
+                  child: BarGraph(taskStatsPercents: taskStatsPercentages)),
             ],
           ),
         ),

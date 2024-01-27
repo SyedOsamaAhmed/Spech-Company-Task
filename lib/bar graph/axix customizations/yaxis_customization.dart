@@ -20,41 +20,25 @@ class Yaxis extends StatelessWidget {
     taskStatsPercents.map((data) {
       value = data;
 
-      switch (value) {
-        case 1:
-          {
-            value == 0.75 ? text = "75%" : null;
-            break;
-          }
-        case 2:
-          {
-            value == 0.90 ? text = "90%" : null;
-            break;
-          }
-        case 3:
-          {
-            value == 0.73 ? text = "73%" : null;
-            break;
-          }
-        case 4:
-          {
-            value == 0.30 ? text = "30%" : null;
-            break;
-          }
-
-        default:
-          break;
-      }
+      if (value == 0.75) {
+        text = "75%";
+      } else if (value == 0.90) {
+        text = "90%";
+      } else if (value == 0.73) {
+        text = "73%";
+      } else if (value == 0.30) {
+        text = "30%";
+      } else {}
     }).toList();
 
     return SideTitleWidget(
       axisSide: meta.axisSide,
-      space: 0.0,
+      space: 0,
       child: Text(
         text,
         style: const TextStyle(
-          color: Colors.white,
-          fontSize: 16,
+          color: Colors.black,
+          fontSize: 12,
         ),
       ),
     );
