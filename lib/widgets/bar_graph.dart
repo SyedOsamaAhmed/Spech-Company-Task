@@ -19,10 +19,8 @@ class BarGraph extends StatelessWidget {
       taskStatsApr: taskStatsPercents[3],
     );
     bardata.initialiazeBarData();
-    return SizedBox(
-      width: MediaQuery.of(context).size.width,
-      height: MediaQuery.of(context).size.height * 0.45,
-      child: BarChart(BarChartData(
+    return BarChart(
+      BarChartData(
         titlesData: const FlTitlesData(
             rightTitles: AxisTitles(
               sideTitles: SideTitles(
@@ -36,7 +34,6 @@ class BarGraph extends StatelessWidget {
             ),
             bottomTitles: AxisTitles(
               sideTitles: SideTitles(
-                reservedSize: 22,
                 showTitles: true,
               ),
             )),
@@ -57,7 +54,7 @@ class BarGraph extends StatelessWidget {
                   ),
                 ]))
             .toList(),
-      )),
+      ),
     );
   }
 }

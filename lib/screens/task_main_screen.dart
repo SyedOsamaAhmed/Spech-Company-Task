@@ -24,70 +24,84 @@ class _MainTaskScreenState extends State<MainTaskScreen> {
     return SafeArea(
       child: Scaffold(
         body: Container(
-          color: const Color(0xffe9dff4),
-          height: MediaQuery.of(context).size.height * 85,
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              stops: [0.1, 0.5, 0.7, 0.9],
+              colors: [
+                Color(0xffe9def7),
+                Color(0xffefe4e7),
+                Color(0xfff0e5e5),
+                Color(0xfff1e5e3),
+              ],
+            ),
+          ),
+          height: MediaQuery.of(context).size.height,
           child: Column(
             children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  SizedBox(
-                    width: MediaQuery.of(context).size.width * 0.30,
-                    height: MediaQuery.of(context).size.height * 0.10,
-                    child: MaterialButton(
-                      color: const Color(0xfff5f1fe),
-                      elevation: 4.0,
-                      shape: const CircleBorder(),
-                      onPressed: () {},
-                      child: const Icon(
-                        Icons.chevron_left_outlined,
-                        size: 28.0,
-                        color: Color(0xff5e5d61),
+              SizedBox(
+                width: MediaQuery.of(context).size.width,
+                height: MediaQuery.of(context).size.height * 0.15,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width * 0.30,
+                      height: MediaQuery.of(context).size.height * 0.10,
+                      child: MaterialButton(
+                        color: const Color.fromARGB(255, 249, 246, 255),
+                        elevation: 4.0,
+                        shape: const CircleBorder(),
+                        onPressed: () {},
+                        child: const Icon(
+                          Icons.chevron_left_outlined,
+                          size: 28.0,
+                          color: Color(0xff5e5d61),
+                        ),
                       ),
                     ),
-                  ),
-                  SizedBox(
-                    width: MediaQuery.of(context).size.width * 0.40,
-                    height: MediaQuery.of(context).size.height * 0.15,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        SizedBox(
-                          width: MediaQuery.of(context).size.width * 0.20,
-                          height: MediaQuery.of(context).size.height * 0.10,
-                          child: MaterialButton(
-                            padding: EdgeInsets.zero,
-                            color: const Color(0xfff5f1fe),
-                            elevation: 4.0,
-                            shape: const CircleBorder(),
-                            onPressed: () {},
-                            child: const Icon(
-                              Icons.calendar_month_outlined,
-                              size: 28.0,
-                              color: Color(0xff5e5d61),
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width * 0.40,
+                      height: MediaQuery.of(context).size.height * 0.15,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          SizedBox(
+                            width: MediaQuery.of(context).size.width * 0.20,
+                            height: MediaQuery.of(context).size.height * 0.10,
+                            child: MaterialButton(
+                              padding: EdgeInsets.zero,
+                              color: const Color.fromARGB(255, 246, 245, 247),
+                              elevation: 4.0,
+                              shape: const CircleBorder(),
+                              onPressed: () {},
+                              child: const Icon(
+                                Icons.calendar_month_outlined,
+                                size: 28.0,
+                                color: Color(0xff5e5d61),
+                              ),
                             ),
                           ),
-                        ),
-                        SizedBox(
-                          width: MediaQuery.of(context).size.width * 0.20,
-                          height: MediaQuery.of(context).size.height * 0.10,
-                          child: MaterialButton(
-                            padding: EdgeInsets.zero,
-                            color: const Color(0xfff5f1fe),
-                            elevation: 4.0,
-                            shape: const CircleBorder(),
-                            onPressed: () {},
-                            child: const Icon(
-                              Icons.search_rounded,
-                              size: 28.0,
-                              color: Color(0xff5e5d61),
+                          SizedBox(
+                            width: MediaQuery.of(context).size.width * 0.20,
+                            height: MediaQuery.of(context).size.height * 0.10,
+                            child: MaterialButton(
+                              padding: EdgeInsets.zero,
+                              color: const Color.fromARGB(255, 255, 255, 255),
+                              elevation: 4.0,
+                              shape: const CircleBorder(),
+                              onPressed: () {},
+                              child: const Icon(
+                                Icons.search_rounded,
+                                size: 28.0,
+                                color: Color(0xff5e5d61),
+                              ),
                             ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
               SizedBox(
                 width: MediaQuery.of(context).size.width,
@@ -109,11 +123,20 @@ class _MainTaskScreenState extends State<MainTaskScreen> {
                         ),
                       ),
                     ),
-                    const DropDownMenu(),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.10,
+                      child: const DropDownMenu(),
+                    ),
                   ],
                 ),
               ),
-              BarGraph(taskStatsPercents: taskStatsPercentages),
+              SizedBox(
+                  width: MediaQuery.of(context).size.width,
+                  height: MediaQuery.of(context).size.height * 0.50,
+                  child: Padding(
+                    padding: const EdgeInsets.only(bottom: 18.0),
+                    child: BarGraph(taskStatsPercents: taskStatsPercentages),
+                  )),
             ],
           ),
         ),
