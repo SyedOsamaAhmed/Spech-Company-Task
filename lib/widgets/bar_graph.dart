@@ -1,6 +1,6 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
+import 'package:spech_interview_task/bar%20graph/axix%20customizations/yaxis_customization.dart';
 import 'package:spech_interview_task/bar%20graph/classes/bar_data.dart';
 
 class BarGraph extends StatelessWidget {
@@ -21,22 +21,30 @@ class BarGraph extends StatelessWidget {
     bardata.initialiazeBarData();
     return BarChart(
       BarChartData(
-        titlesData: const FlTitlesData(
-            rightTitles: AxisTitles(
-              sideTitles: SideTitles(
-                showTitles: false,
-              ),
+        titlesData: FlTitlesData(
+          rightTitles: const AxisTitles(
+            sideTitles: SideTitles(
+              showTitles: false,
             ),
-            topTitles: AxisTitles(
-              sideTitles: SideTitles(
-                showTitles: false,
-              ),
+          ),
+          topTitles: const AxisTitles(
+            sideTitles: SideTitles(
+              showTitles: false,
             ),
-            bottomTitles: AxisTitles(
-              sideTitles: SideTitles(
-                showTitles: true,
-              ),
-            )),
+          ),
+          bottomTitles: const AxisTitles(
+            sideTitles: SideTitles(
+              showTitles: true,
+            ),
+          ),
+          leftTitles: AxisTitles(
+            sideTitles: SideTitles(
+              showTitles: true,
+              getTitlesWidget: (value, meta) =>
+                  Yaxis(taskStatsPercents: taskStatsPercents, meta: meta),
+            ),
+          ),
+        ),
         gridData: const FlGridData(
           show: false,
         ),
