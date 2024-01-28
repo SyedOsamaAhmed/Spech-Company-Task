@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:spech_interview_task/widgets/bar_graph.dart';
 
 import 'package:spech_interview_task/widgets/dropdown_menu.dart';
+import 'package:spech_interview_task/widgets/summary_boxes.dart';
 
 class MainTaskScreen extends StatefulWidget {
   const MainTaskScreen({super.key});
@@ -38,6 +39,7 @@ class _MainTaskScreenState extends State<MainTaskScreen> {
           height: MediaQuery.of(context).size.height,
           child: Column(
             children: [
+              //Icons section:
               SizedBox(
                 width: MediaQuery.of(context).size.width,
                 height: MediaQuery.of(context).size.height * 0.15,
@@ -103,37 +105,125 @@ class _MainTaskScreenState extends State<MainTaskScreen> {
                   ],
                 ),
               ),
+
+              //Task Stats Section:
               SizedBox(
                 width: MediaQuery.of(context).size.width,
-                height: MediaQuery.of(context).size.height * 0.25,
+                height: MediaQuery.of(context).size.height * 0.12,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     SizedBox(
                       width: MediaQuery.of(context).size.width * 0.32,
                       height: MediaQuery.of(context).size.height * 0.20,
-                      child: const Padding(
-                        padding: EdgeInsets.only(top: 18.0),
-                        child: Text(
-                          "Task Statistics",
-                          style: TextStyle(
-                              fontSize: 20,
-                              color: Colors.black,
-                              decoration: TextDecoration.none),
-                        ),
+                      child: const Text(
+                        "Task Statistics",
+                        style: TextStyle(
+                            fontSize: 20,
+                            color: Colors.black,
+                            decoration: TextDecoration.none),
                       ),
                     ),
-                    SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.10,
-                      child: const DropDownMenu(),
-                    ),
+                    const DropDownMenu(),
                   ],
                 ),
               ),
+              Padding(
+                padding: const EdgeInsets.only(
+                  top: 8.0,
+                  bottom: 8.0,
+                ),
+                child: SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.90,
+                    height: MediaQuery.of(context).size.height * 0.35,
+                    child: BarGraph(taskStatsPercents: taskStatsPercentages)),
+              ),
+
+              //Summary section:
               SizedBox(
-                  width: MediaQuery.of(context).size.width * 0.90,
-                  height: MediaQuery.of(context).size.height * 0.50,
-                  child: BarGraph(taskStatsPercents: taskStatsPercentages)),
+                  width: MediaQuery.of(context).size.width,
+                  child: Column(
+                    children: [
+                      Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            const Text(
+                              "Summary",
+                              style: TextStyle(
+                                fontSize: 25,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                            SizedBox(
+                              width: MediaQuery.of(context).size.width * 0.50,
+                              height: MediaQuery.of(context).size.height * 0.10,
+                              child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  children: [
+                                    SizedBox(
+                                      width: MediaQuery.of(context).size.width *
+                                          0.20,
+                                      height:
+                                          MediaQuery.of(context).size.height *
+                                              0.06,
+                                      child: MaterialButton(
+                                        padding: EdgeInsets.zero,
+                                        color: const Color.fromARGB(
+                                            255, 246, 245, 247),
+                                        elevation: 4.0,
+                                        shape: const CircleBorder(),
+                                        onPressed: () {},
+                                        child: const Icon(
+                                          Icons.equalizer_sharp,
+                                          size: 28.0,
+                                          color: Color(0xff5e5d61),
+                                        ),
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      width: MediaQuery.of(context).size.width *
+                                          0.20,
+                                      height:
+                                          MediaQuery.of(context).size.height *
+                                              0.06,
+                                      child: MaterialButton(
+                                        padding: EdgeInsets.zero,
+                                        color: const Color.fromARGB(
+                                            255, 246, 245, 247),
+                                        elevation: 4.0,
+                                        shape: const CircleBorder(),
+                                        onPressed: () {},
+                                        child: const Icon(
+                                          Icons.more_horiz_outlined,
+                                          size: 28.0,
+                                          color: Color(0xff5e5d61),
+                                        ),
+                                      ),
+                                    ),
+                                  ]),
+                            )
+                          ]),
+
+                      //Summary Boxes Secttion:
+                      SizedBox(
+                        width: MediaQuery.of(context).size.width,
+                        height: MediaQuery.of(context).size.height * 0.20,
+                        child: const Row(
+                          children: [
+                            Flexible(
+                              child: SummaryBoxes(
+                                color: Color(0xffe8b85c),
+                                text: "Weekly Progress",
+                                percentage: "32%",
+                              ),
+                            )
+                          ],
+                        ),
+                      )
+                    ],
+                  ))
             ],
           ),
         ),

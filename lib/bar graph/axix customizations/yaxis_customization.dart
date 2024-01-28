@@ -1,4 +1,3 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 
@@ -16,24 +15,23 @@ class Yaxis extends StatelessWidget {
   Widget build(BuildContext context) {
     String text = "";
     double value = 0.0;
-
-    taskStatsPercents.map((data) {
+    for (double data in taskStatsPercents) {
       value = data;
 
       if (value == 0.75) {
-        text = "75%";
+        text = "75";
       } else if (value == 0.90) {
-        text = "90%";
+        text = "90";
       } else if (value == 0.73) {
-        text = "73%";
+        text = "73";
       } else if (value == 0.30) {
-        text = "30%";
+        text = "30";
       } else {}
-    }).toList();
+    }
 
     return SideTitleWidget(
       axisSide: meta.axisSide,
-      space: 0,
+      space: 1.0,
       child: Text(
         text,
         style: const TextStyle(
