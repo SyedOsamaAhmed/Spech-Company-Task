@@ -158,7 +158,7 @@ class _MainTaskScreenState extends State<MainTaskScreen> {
                             ),
                             SizedBox(
                               width: MediaQuery.of(context).size.width * 0.50,
-                              height: MediaQuery.of(context).size.height * 0.10,
+                              height: MediaQuery.of(context).size.height * 0.07,
                               child: Row(
                                   mainAxisAlignment: MainAxisAlignment.end,
                                   children: [
@@ -209,10 +209,12 @@ class _MainTaskScreenState extends State<MainTaskScreen> {
                       //Summary Boxes Secttion:
                       SizedBox(
                         width: MediaQuery.of(context).size.width,
-                        height: MediaQuery.of(context).size.height * 0.20,
                         child: const Row(
                           children: [
-                            Flexible(
+                            Padding(
+                              padding: EdgeInsets.symmetric(
+                                horizontal: 7.0,
+                              ),
                               child: SummaryBoxes(
                                 color: Color(0xffe8b85c),
                                 text: "Weekly Progress",
