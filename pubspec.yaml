@@ -37,8 +37,9 @@ dependencies:
   cupertino_icons: ^1.0.2
   dropdown_button2: ^2.3.9
   fl_chart: ^0.66.1
+  flutter_vector_icons: ^2.0.0
 
-  font_awesome_flutter: ^10.7.0
+
 
 dev_dependencies:
   flutter_test:

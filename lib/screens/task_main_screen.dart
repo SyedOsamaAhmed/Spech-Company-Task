@@ -38,20 +38,27 @@ class _MainTaskScreenState extends State<MainTaskScreen> {
           ),
           height: MediaQuery.of(context).size.height,
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
               //Icons section:
-              SizedBox(
-                width: MediaQuery.of(context).size.width,
-                height: MediaQuery.of(context).size.height * 0.15,
+              Padding(
+                padding: const EdgeInsets.only(
+                  top: 8.0,
+                  left: 8.0,
+                  bottom: 8.0,
+                ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     SizedBox(
-                      width: MediaQuery.of(context).size.width * 0.30,
+                      width: MediaQuery.of(context).size.width * 0.15,
                       height: MediaQuery.of(context).size.height * 0.10,
                       child: MaterialButton(
                         color: const Color.fromARGB(255, 249, 246, 255),
                         elevation: 4.0,
+                        padding: const EdgeInsets.only(
+                          right: 4.0,
+                        ),
                         shape: const CircleBorder(),
                         onPressed: () {},
                         child: const Icon(
@@ -61,14 +68,15 @@ class _MainTaskScreenState extends State<MainTaskScreen> {
                         ),
                       ),
                     ),
-                    SizedBox(
-                      width: MediaQuery.of(context).size.width * 0.40,
-                      height: MediaQuery.of(context).size.height * 0.15,
+                    Padding(
+                      padding: const EdgeInsets.only(
+                        right: 8.0,
+                      ),
                       child: Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
                           SizedBox(
-                            width: MediaQuery.of(context).size.width * 0.20,
+                            width: MediaQuery.of(context).size.width * 0.15,
                             height: MediaQuery.of(context).size.height * 0.10,
                             child: MaterialButton(
                               padding: EdgeInsets.zero,
@@ -84,7 +92,10 @@ class _MainTaskScreenState extends State<MainTaskScreen> {
                             ),
                           ),
                           SizedBox(
-                            width: MediaQuery.of(context).size.width * 0.20,
+                            width: MediaQuery.of(context).size.width * 0.01,
+                          ),
+                          SizedBox(
+                            width: MediaQuery.of(context).size.width * 0.15,
                             height: MediaQuery.of(context).size.height * 0.10,
                             child: MaterialButton(
                               padding: EdgeInsets.zero,
@@ -93,7 +104,7 @@ class _MainTaskScreenState extends State<MainTaskScreen> {
                               shape: const CircleBorder(),
                               onPressed: () {},
                               child: const Icon(
-                                Icons.search_rounded,
+                                Icons.search_sharp,
                                 size: 28.0,
                                 color: Color(0xff5e5d61),
                               ),
@@ -107,37 +118,47 @@ class _MainTaskScreenState extends State<MainTaskScreen> {
               ),
 
               //Task Stats Section:
-              SizedBox(
-                width: MediaQuery.of(context).size.width,
-                height: MediaQuery.of(context).size.height * 0.12,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    SizedBox(
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(
+                      left: 8.0,
+                    ),
+                    child: SizedBox(
                       width: MediaQuery.of(context).size.width * 0.32,
-                      height: MediaQuery.of(context).size.height * 0.20,
                       child: const Text(
-                        "Task Statistics",
+                        "Task Statistic",
                         style: TextStyle(
-                            fontSize: 20,
+                            fontSize: 24,
                             color: Colors.black,
+                            letterSpacing: 0.2,
                             decoration: TextDecoration.none),
                       ),
                     ),
-                    const DropDownMenu(),
-                  ],
-                ),
+                  ),
+                  const Padding(
+                    padding: EdgeInsets.only(
+                      right: 12.0,
+                      top: 18.0,
+                    ),
+                    child: DropDownMenu(),
+                  ),
+                ],
               ),
-              Padding(
-                padding: const EdgeInsets.only(
-                  top: 8.0,
-                  bottom: 8.0,
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.only(
+                    top: 8.0,
+                    bottom: 8.0,
+                  ),
+                  //BarGraph Section
+                  child: SizedBox(
+                      width: MediaQuery.of(context).size.width * 0.90,
+                      height: MediaQuery.of(context).size.height * 0.40,
+                      child: BarGraph(taskStatsPercents: taskStatsPercentages)),
                 ),
-                child: SizedBox(
-                    width: MediaQuery.of(context).size.width * 0.90,
-                    height: MediaQuery.of(context).size.height * 0.35,
-                    child: BarGraph(taskStatsPercents: taskStatsPercentages)),
               ),
 
               //Summary section:
@@ -158,7 +179,6 @@ class _MainTaskScreenState extends State<MainTaskScreen> {
                             ),
                             SizedBox(
                               width: MediaQuery.of(context).size.width * 0.50,
-                              height: MediaQuery.of(context).size.height * 0.07,
                               child: Row(
                                   mainAxisAlignment: MainAxisAlignment.end,
                                   children: [
@@ -206,21 +226,31 @@ class _MainTaskScreenState extends State<MainTaskScreen> {
                             )
                           ]),
 
-                      //Summary Boxes Secttion:
-                      SizedBox(
-                        width: MediaQuery.of(context).size.width,
-                        child: const Row(
+                      //Summary Boxes Section:
+                      Padding(
+                        padding: const EdgeInsets.only(
+                          top: 15.0,
+                          bottom: 8.0,
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
-                            Padding(
-                              padding: EdgeInsets.symmetric(
-                                horizontal: 7.0,
-                              ),
-                              child: SummaryBoxes(
+                            SizedBox(
+                              width: MediaQuery.of(context).size.width * 0.45,
+                              child: const SummaryBoxes(
                                 color: Color(0xffe8b85c),
                                 text: "Weekly Progress",
                                 percentage: "32%",
                               ),
-                            )
+                            ),
+                            SizedBox(
+                              width: MediaQuery.of(context).size.width * 0.45,
+                              child: const SummaryBoxes(
+                                color: Color(0xffd8bbc5),
+                                text: "Average Task Execution",
+                                percentage: "78%",
+                              ),
+                            ),
                           ],
                         ),
                       )
