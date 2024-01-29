@@ -1,7 +1,7 @@
 # Spech-Company-Task
 ## spech_interview_task
 
-A new Flutter project.
+This repo contains an interview task implementation.
 
 ## Features
 Implemented features:
@@ -18,8 +18,8 @@ The screenshot of main task is as follows:
 
 
 Tested on two Android devices:
-* **Redmi 4a**
-* **Honor 6A**
+* **Redmi 4A**
+* **Honor 6X**
 
 ## Future Improvements
 
