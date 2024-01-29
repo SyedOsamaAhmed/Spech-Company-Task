@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:spech_interview_task/bar%20graph/axix%20customizations/xaxis_customization.dart';
 import 'package:spech_interview_task/bar%20graph/axix%20customizations/yaxis_customization.dart';
 import 'package:spech_interview_task/bar%20graph/classes/bar_data.dart';
+import 'package:spech_interview_task/resources/application_colors.dart';
 
 class BarGraph extends StatelessWidget {
   final List<double> taskStatsPercents;
@@ -23,6 +24,23 @@ class BarGraph extends StatelessWidget {
     List<String> months = ["Jan", "Feb", "Mar", "Apr"];
     return BarChart(
       BarChartData(
+        barTouchData: BarTouchData(
+          enabled: true,
+          touchTooltipData: BarTouchTooltipData(
+            tooltipMargin: 0.0,
+            fitInsideVertically: true,
+            getTooltipItem: (group, groupIndex, rod, rodIndex) =>
+                BarTooltipItem(
+              "${(rod.toY.toInt()).toString()}%",
+              const TextStyle(
+                color: ApplicationColors.textColor,
+                fontWeight: FontWeight.w400,
+              ),
+            ),
+            tooltipRoundedRadius: 42.0,
+            tooltipBgColor: ApplicationColors.tooltipBackgroundColor,
+          ),
+        ),
         titlesData: FlTitlesData(
           rightTitles: const AxisTitles(
             sideTitles: SideTitles(

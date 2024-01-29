@@ -63,8 +63,8 @@ class SummaryBoxes extends StatelessWidget {
               width: MediaQuery.of(context).size.width * 0.29,
               child: Text(
                 text,
-                style: const TextStyle(
-                  color: ApplicationColors.summaryTextBox1TextColor,
+                style: TextStyle(
+                  color: textColor,
                   fontSize: 15,
                   fontWeight: FontWeight.w300,
                 ),

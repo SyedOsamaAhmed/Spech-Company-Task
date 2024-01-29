@@ -15,9 +15,10 @@ class ApplicationColors {
   static const Color sliderColor = Color(0xffa8a59e);
   static const Color arrowTopRightThinColor = Color(0xfffefdfa);
   static const Color summaryTextBox1TextColor = Color(0xfff9edd4);
-  static const Color summaryTextBox2TextColor = Color(0xffefe5e8);
+  static const Color summaryTextBox2TextColor = Color(0xfff2eaed);
   static const Color summaryPercentColor = Colors.white;
   static const Color iconBackgroundColor = Colors.white;
   static const Color summaryTextBox1Color = Color(0xffe8b85c);
   static const Color summaryTextBox2Color = Color(0xffd8bbc5);
+  static const Color tooltipBackgroundColor = Colors.white;
 }
