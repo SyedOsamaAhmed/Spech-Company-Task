@@ -21,4 +21,5 @@ class ApplicationColors {
   static const Color summaryTextBox1Color = Color(0xffe8b85c);
   static const Color summaryTextBox2Color = Color(0xffd8bbc5);
   static const Color tooltipBackgroundColor = Colors.white;
+  static const Color touchedBarColor = Color(0xffc5abf0);
 }

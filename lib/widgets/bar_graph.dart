@@ -1,31 +1,39 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
+
 import 'package:spech_interview_task/bar%20graph/axix%20customizations/xaxis_customization.dart';
 import 'package:spech_interview_task/bar%20graph/axix%20customizations/yaxis_customization.dart';
 import 'package:spech_interview_task/bar%20graph/classes/bar_data.dart';
 import 'package:spech_interview_task/resources/application_colors.dart';
 
-class BarGraph extends StatelessWidget {
+class BarGraph extends StatefulWidget {
   final List<double> taskStatsPercents;
+
   const BarGraph({
     Key? key,
     required this.taskStatsPercents,
   }) : super(key: key);
 
   @override
+  State<BarGraph> createState() => _BarGraphState();
+}
+
+class _BarGraphState extends State<BarGraph> {
+  @override
   Widget build(BuildContext context) {
     BarData bardata = BarData(
-      taskStatsJan: taskStatsPercents[0],
-      taskStatsFeb: taskStatsPercents[1],
-      taskStatsMar: taskStatsPercents[2],
-      taskStatsApr: taskStatsPercents[3],
+      taskStatsJan: widget.taskStatsPercents[0],
+      taskStatsFeb: widget.taskStatsPercents[1],
+      taskStatsMar: widget.taskStatsPercents[2],
+      taskStatsApr: widget.taskStatsPercents[3],
     );
     bardata.initialiazeBarData();
     List<String> months = ["Jan", "Feb", "Mar", "Apr"];
+
     return BarChart(
       BarChartData(
         barTouchData: BarTouchData(
-          enabled: true,
           touchTooltipData: BarTouchTooltipData(
             tooltipMargin: 0.0,
             fitInsideVertically: true,
@@ -80,7 +88,7 @@ class BarGraph extends StatelessWidget {
         barGroups: bardata.bardata
             .map((data) => BarChartGroupData(x: data.x, barRods: [
                   BarChartRodData(
-                    color: Colors.white,
+                    color: ApplicationColors.iconBackgroundColor,
                     width: 45,
                     toY: data.y * 100,
                   ),
