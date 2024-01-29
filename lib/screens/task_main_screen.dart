@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 
 import 'package:spech_interview_task/widgets/bar_graph.dart';
 
@@ -85,8 +86,8 @@ class _MainTaskScreenState extends State<MainTaskScreen> {
                               shape: const CircleBorder(),
                               onPressed: () {},
                               child: const Icon(
-                                Icons.calendar_month_outlined,
-                                size: 28.0,
+                                EvilIcons.calendar,
+                                size: 22.0,
                                 color: Color(0xff5e5d61),
                               ),
                             ),
@@ -123,8 +124,8 @@ class _MainTaskScreenState extends State<MainTaskScreen> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(
-                      left: 8.0,
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 8.0,
                     ),
                     child: SizedBox(
                       width: MediaQuery.of(context).size.width * 0.32,
@@ -150,13 +151,13 @@ class _MainTaskScreenState extends State<MainTaskScreen> {
               Expanded(
                 child: Padding(
                   padding: const EdgeInsets.only(
-                    top: 8.0,
+                    top: 12.0,
                     bottom: 8.0,
                   ),
                   //BarGraph Section
                   child: SizedBox(
                       width: MediaQuery.of(context).size.width * 0.90,
-                      height: MediaQuery.of(context).size.height * 0.40,
+                      height: MediaQuery.of(context).size.height * 0.48,
                       child: BarGraph(taskStatsPercents: taskStatsPercentages)),
                 ),
               ),
@@ -167,62 +168,71 @@ class _MainTaskScreenState extends State<MainTaskScreen> {
                   child: Column(
                     children: [
                       Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            const Text(
-                              "Summary",
-                              style: TextStyle(
-                                fontSize: 25,
-                                fontWeight: FontWeight.w500,
+                            const Padding(
+                              padding: EdgeInsets.only(
+                                left: 5.0,
+                              ),
+                              child: Text(
+                                "Summary",
+                                style: TextStyle(
+                                  fontSize: 25,
+                                  fontWeight: FontWeight.w400,
+                                ),
                               ),
                             ),
-                            SizedBox(
-                              width: MediaQuery.of(context).size.width * 0.50,
+                            Padding(
+                              padding: const EdgeInsets.only(
+                                right: 9.0,
+                              ),
                               child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.end,
-                                  children: [
-                                    SizedBox(
-                                      width: MediaQuery.of(context).size.width *
-                                          0.20,
-                                      height:
-                                          MediaQuery.of(context).size.height *
-                                              0.06,
-                                      child: MaterialButton(
-                                        padding: EdgeInsets.zero,
-                                        color: const Color.fromARGB(
-                                            255, 246, 245, 247),
-                                        elevation: 4.0,
-                                        shape: const CircleBorder(),
-                                        onPressed: () {},
-                                        child: const Icon(
-                                          Icons.equalizer_sharp,
-                                          size: 28.0,
-                                          color: Color(0xff5e5d61),
-                                        ),
+                                children: [
+                                  SizedBox(
+                                    width: MediaQuery.of(context).size.width *
+                                        0.10,
+                                    height: MediaQuery.of(context).size.height *
+                                        0.10,
+                                    child: MaterialButton(
+                                      color: const Color.fromARGB(
+                                          255, 246, 245, 247),
+                                      elevation: 4.0,
+                                      padding: EdgeInsets.zero,
+                                      shape: const CircleBorder(),
+                                      onPressed: () {},
+                                      child: const Icon(
+                                        Feather.sliders,
+                                        size: 20.0,
+                                        color: Color(0xff5e5d61),
                                       ),
                                     ),
-                                    SizedBox(
-                                      width: MediaQuery.of(context).size.width *
-                                          0.20,
-                                      height:
-                                          MediaQuery.of(context).size.height *
-                                              0.06,
-                                      child: MaterialButton(
-                                        padding: EdgeInsets.zero,
-                                        color: const Color.fromARGB(
-                                            255, 246, 245, 247),
-                                        elevation: 4.0,
-                                        shape: const CircleBorder(),
-                                        onPressed: () {},
-                                        child: const Icon(
-                                          Icons.more_horiz_outlined,
-                                          size: 28.0,
-                                          color: Color(0xff5e5d61),
-                                        ),
+                                  ),
+                                  SizedBox(
+                                    width: MediaQuery.of(context).size.width *
+                                        0.01,
+                                  ),
+                                  SizedBox(
+                                    width: MediaQuery.of(context).size.width *
+                                        0.10,
+                                    height: MediaQuery.of(context).size.height *
+                                        0.10,
+                                    child: MaterialButton(
+                                      color: const Color.fromARGB(
+                                          255, 246, 245, 247),
+                                      elevation: 4.0,
+                                      shape: const CircleBorder(),
+                                      padding: EdgeInsets.zero,
+                                      onPressed: () {},
+                                      child: const Icon(
+                                        Icons.more_horiz_outlined,
+                                        size: 20.0,
+                                        color: Color(0xff5e5d61),
                                       ),
                                     ),
-                                  ]),
+                                  )
+                                ],
+                              ),
                             )
                           ]),
 
