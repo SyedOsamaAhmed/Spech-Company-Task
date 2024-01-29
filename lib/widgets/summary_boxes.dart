@@ -1,13 +1,18 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 
+import 'package:spech_interview_task/resources/app_colors.dart';
+
 class SummaryBoxes extends StatelessWidget {
-  final Color color;
+  final Color boxColor;
+  final Color textColor;
   final String text;
   final String percentage;
   const SummaryBoxes({
     Key? key,
-    required this.color,
+    required this.boxColor,
+    required this.textColor,
     required this.text,
     required this.percentage,
   }) : super(key: key);
@@ -18,7 +23,7 @@ class SummaryBoxes extends StatelessWidget {
       width: MediaQuery.of(context).size.width * 0.30,
       height: MediaQuery.of(context).size.height * 0.30,
       decoration: BoxDecoration(
-          color: color,
+          color: boxColor,
           borderRadius: BorderRadius.circular(
             28.0,
           )),
@@ -38,14 +43,14 @@ class SummaryBoxes extends StatelessWidget {
                     side: BorderSide(
                       width: 0.8,
                       style: BorderStyle.solid,
-                      color: Colors.white,
+                      color: ApplicationColors.arrowTopRightThinColor,
                     ),
                   ),
                   onPressed: () {},
                   child: const Icon(
                     MaterialCommunityIcons.arrow_top_right_thin,
                     size: 28.0,
-                    color: Color(0xfffbf2e1),
+                    color: ApplicationColors.arrowTopRightThinColor,
                   ),
                 ),
               ),
@@ -60,7 +65,7 @@ class SummaryBoxes extends StatelessWidget {
               child: Text(
                 text,
                 style: const TextStyle(
-                  color: Colors.white,
+                  color: ApplicationColors.summaryTextBox1TextColor,
                   fontSize: 15,
                   fontWeight: FontWeight.w300,
                 ),
@@ -74,7 +79,7 @@ class SummaryBoxes extends StatelessWidget {
             child: Text(
               percentage,
               style: const TextStyle(
-                color: Colors.white,
+                color: ApplicationColors.summaryPercentColor,
                 fontWeight: FontWeight.w400,
                 fontSize: 28,
               ),

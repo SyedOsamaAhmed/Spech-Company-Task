@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 
+import 'package:spech_interview_task/resources/app_colors.dart';
+
 import 'package:spech_interview_task/widgets/bar_graph.dart';
 
 import 'package:spech_interview_task/widgets/dropdown_menu.dart';
@@ -29,12 +31,7 @@ class _MainTaskScreenState extends State<MainTaskScreen> {
           decoration: const BoxDecoration(
             gradient: LinearGradient(
               stops: [0.1, 0.5, 0.7, 0.9],
-              colors: [
-                Color(0xffe9def7),
-                Color(0xffefe4e7),
-                Color(0xfff0e5e5),
-                Color(0xfff1e5e3),
-              ],
+              colors: ApplicationColors.gradientContainer,
             ),
           ),
           height: MediaQuery.of(context).size.height,
@@ -55,7 +52,7 @@ class _MainTaskScreenState extends State<MainTaskScreen> {
                       width: MediaQuery.of(context).size.width * 0.15,
                       height: MediaQuery.of(context).size.height * 0.10,
                       child: MaterialButton(
-                        color: const Color.fromARGB(255, 249, 246, 255),
+                        color: ApplicationColors.iconBackgroundColor,
                         elevation: 4.0,
                         padding: const EdgeInsets.only(
                           right: 4.0,
@@ -65,7 +62,7 @@ class _MainTaskScreenState extends State<MainTaskScreen> {
                         child: const Icon(
                           Icons.chevron_left_outlined,
                           size: 28.0,
-                          color: Color(0xff5e5d61),
+                          color: ApplicationColors.iconChevronColor,
                         ),
                       ),
                     ),
@@ -81,14 +78,14 @@ class _MainTaskScreenState extends State<MainTaskScreen> {
                             height: MediaQuery.of(context).size.height * 0.10,
                             child: MaterialButton(
                               padding: EdgeInsets.zero,
-                              color: const Color.fromARGB(255, 246, 245, 247),
+                              color: ApplicationColors.iconBackgroundColor,
                               elevation: 4.0,
                               shape: const CircleBorder(),
                               onPressed: () {},
                               child: const Icon(
                                 EvilIcons.calendar,
                                 size: 22.0,
-                                color: Color(0xff5e5d61),
+                                color: ApplicationColors.calenderColor,
                               ),
                             ),
                           ),
@@ -100,14 +97,14 @@ class _MainTaskScreenState extends State<MainTaskScreen> {
                             height: MediaQuery.of(context).size.height * 0.10,
                             child: MaterialButton(
                               padding: EdgeInsets.zero,
-                              color: const Color.fromARGB(255, 255, 255, 255),
+                              color: ApplicationColors.iconBackgroundColor,
                               elevation: 4.0,
                               shape: const CircleBorder(),
                               onPressed: () {},
                               child: const Icon(
                                 Icons.search_sharp,
                                 size: 28.0,
-                                color: Color(0xff5e5d61),
+                                color: ApplicationColors.searchIconColor,
                               ),
                             ),
                           ),
@@ -133,7 +130,7 @@ class _MainTaskScreenState extends State<MainTaskScreen> {
                         "Task Statistic",
                         style: TextStyle(
                             fontSize: 24,
-                            color: Colors.black,
+                            color: ApplicationColors.textColor,
                             letterSpacing: 0.2,
                             decoration: TextDecoration.none),
                       ),
@@ -193,8 +190,8 @@ class _MainTaskScreenState extends State<MainTaskScreen> {
                                   height:
                                       MediaQuery.of(context).size.height * 0.10,
                                   child: MaterialButton(
-                                    color: const Color.fromARGB(
-                                        255, 246, 245, 247),
+                                    color:
+                                        ApplicationColors.iconBackgroundColor,
                                     elevation: 4.0,
                                     padding: EdgeInsets.zero,
                                     shape: const CircleBorder(),
@@ -202,7 +199,7 @@ class _MainTaskScreenState extends State<MainTaskScreen> {
                                     child: const Icon(
                                       Feather.sliders,
                                       size: 20.0,
-                                      color: Color(0xff5e5d61),
+                                      color: ApplicationColors.sliderColor,
                                     ),
                                   ),
                                 ),
@@ -216,8 +213,8 @@ class _MainTaskScreenState extends State<MainTaskScreen> {
                                   height:
                                       MediaQuery.of(context).size.height * 0.10,
                                   child: MaterialButton(
-                                    color: const Color.fromARGB(
-                                        255, 246, 245, 247),
+                                    color:
+                                        ApplicationColors.iconBackgroundColor,
                                     elevation: 4.0,
                                     shape: const CircleBorder(),
                                     padding: EdgeInsets.zero,
@@ -225,7 +222,8 @@ class _MainTaskScreenState extends State<MainTaskScreen> {
                                     child: const Icon(
                                       Icons.more_horiz_outlined,
                                       size: 20.0,
-                                      color: Color(0xff5e5d61),
+                                      color: ApplicationColors
+                                          .moreHorizOutlinedColor,
                                     ),
                                   ),
                                 )
@@ -242,18 +240,22 @@ class _MainTaskScreenState extends State<MainTaskScreen> {
                           width: MediaQuery.of(context).size.width * 0.45,
                           height: MediaQuery.of(context).size.height * 0.27,
                           child: const SummaryBoxes(
-                            color: Color(0xffe8b85c),
+                            boxColor: ApplicationColors.summaryTextBox1Color,
                             text: "Weekly Progress",
                             percentage: "32%",
+                            textColor:
+                                ApplicationColors.summaryTextBox1TextColor,
                           ),
                         ),
                         SizedBox(
                           width: MediaQuery.of(context).size.width * 0.45,
                           height: MediaQuery.of(context).size.height * 0.27,
                           child: const SummaryBoxes(
-                            color: Color(0xffd8bbc5),
+                            boxColor: ApplicationColors.summaryTextBox2Color,
                             text: "Average Task Execution",
                             percentage: "78%",
+                            textColor:
+                                ApplicationColors.summaryTextBox2TextColor,
                           ),
                         ),
                       ],
