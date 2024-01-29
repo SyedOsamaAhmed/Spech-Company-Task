@@ -4,18 +4,25 @@
 A new Flutter project.
 
 ## Features
+Implemented features:
 
--
+-  Utilized the default font,following dart best practices.
+-  Constants for colors from classes are being used throughout the application.
+-  Tiles and buttons are navigated to another page implemented. 
+-  Selected month should display corresponding percentage implemented.
 
-This project is a starting point for a Flutter application.
+The screenshot of main task is as follows:
 
-A few resources to get you started if this is your first Flutter project:
+### Output:
+![Main](https://github.com/SyedOsamaAhmed/Spech-Company-Task/blob/main/assets/main_screen.jpg?raw=true)
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Tested on two Android devices:
+* **Redmi 4a**
+* **Honor 6A**
 
 ## Future Improvements
+
+- For handling bar color on tap, a state management soloution is needed to detect correct state.
+- For dynamic data can be integrated in dropdown menu and bar graph.
+
