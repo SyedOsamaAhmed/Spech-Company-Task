@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 
 import 'package:spech_interview_task/resources/application_colors.dart';
+import 'package:spech_interview_task/screens/back_screen.dart';
+import 'package:spech_interview_task/screens/task_execution_screen.dart';
+import 'package:spech_interview_task/screens/weekly_progress.dart';
 
 import 'package:spech_interview_task/widgets/bar_graph.dart';
 
@@ -58,7 +61,11 @@ class _MainTaskScreenState extends State<MainTaskScreen> {
                           right: 4.0,
                         ),
                         shape: const CircleBorder(),
-                        onPressed: () {},
+                        onPressed: () => Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (context) => const BackScreen(),
+                          ),
+                        ),
                         child: const Icon(
                           Icons.chevron_left_outlined,
                           size: 28.0,
@@ -68,7 +75,7 @@ class _MainTaskScreenState extends State<MainTaskScreen> {
                     ),
                     Padding(
                       padding: const EdgeInsets.only(
-                        right: 8.0,
+                        right: 10.0,
                       ),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -120,15 +127,20 @@ class _MainTaskScreenState extends State<MainTaskScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  SizedBox(
-                    width: MediaQuery.of(context).size.width * 0.32,
-                    child: const Text(
-                      "Task Statistic",
-                      style: TextStyle(
-                          fontSize: 24,
-                          color: ApplicationColors.textColor,
-                          letterSpacing: 0.2,
-                          decoration: TextDecoration.none),
+                  Padding(
+                    padding: const EdgeInsets.only(
+                      left: 12.0,
+                    ),
+                    child: SizedBox(
+                      width: MediaQuery.of(context).size.width * 0.32,
+                      child: const Text(
+                        "Task Statistic",
+                        style: TextStyle(
+                            fontSize: 24,
+                            color: ApplicationColors.textColor,
+                            letterSpacing: 0.2,
+                            decoration: TextDecoration.none),
+                      ),
                     ),
                   ),
                   const Padding(
@@ -145,7 +157,7 @@ class _MainTaskScreenState extends State<MainTaskScreen> {
                   padding: const EdgeInsets.only(
                     top: 12.0,
                     bottom: 8.0,
-                    left: 4.0,
+                    left: 6.0,
                   ),
                   //BarGraph Section
                   child: SizedBox(
@@ -237,23 +249,39 @@ class _MainTaskScreenState extends State<MainTaskScreen> {
                         SizedBox(
                           width: MediaQuery.of(context).size.width * 0.45,
                           height: MediaQuery.of(context).size.height * 0.27,
-                          child: const SummaryBoxes(
-                            boxColor: ApplicationColors.summaryTextBox1Color,
-                            text: "Weekly Progress",
-                            percentage: "32%",
-                            textColor:
-                                ApplicationColors.summaryTextBox1TextColor,
+                          child: InkWell(
+                            onTap: () => Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => const WeeklyProgress(),
+                                )),
+                            child: const SummaryBoxes(
+                              boxColor: ApplicationColors.summaryTextBox1Color,
+                              text: "Weekly Progress",
+                              percentage: "32%",
+                              textColor:
+                                  ApplicationColors.summaryTextBox1TextColor,
+                            ),
                           ),
                         ),
                         SizedBox(
                           width: MediaQuery.of(context).size.width * 0.45,
                           height: MediaQuery.of(context).size.height * 0.27,
-                          child: const SummaryBoxes(
-                            boxColor: ApplicationColors.summaryTextBox2Color,
-                            text: "Average Task Execution",
-                            percentage: "78%",
-                            textColor:
-                                ApplicationColors.summaryTextBox2TextColor,
+                          child: InkWell(
+                            onTap: () => Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    const TaskExecutionScreen(),
+                              ),
+                            ),
+                            child: const SummaryBoxes(
+                              boxColor: ApplicationColors.summaryTextBox2Color,
+                              text: "Average Task Execution",
+                              percentage: "78%",
+                              textColor:
+                                  ApplicationColors.summaryTextBox2TextColor,
+                            ),
                           ),
                         ),
                       ],
