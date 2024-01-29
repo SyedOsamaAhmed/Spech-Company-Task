@@ -3,12 +3,13 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:spech_interview_task/resources/application_colors.dart';
 
-class Yaxis extends StatelessWidget {
+class XAxis extends StatelessWidget {
+  final List<String> months;
   final double value;
   final TitleMeta meta;
-
-  const Yaxis({
+  const XAxis({
     Key? key,
+    required this.months,
     required this.value,
     required this.meta,
   }) : super(key: key);
@@ -17,13 +18,13 @@ class Yaxis extends StatelessWidget {
   Widget build(BuildContext context) {
     return SideTitleWidget(
       axisSide: meta.axisSide,
-      space: 0.0,
+      space: 4.0,
       child: Text(
         softWrap: true,
-        "${(value.toInt()).toString()}%",
+        months[value.toInt() - 1],
         style: const TextStyle(
           color: ApplicationColors.textColor,
-          fontSize: 7.5,
+          fontSize: 9,
           fontWeight: FontWeight.w400,
         ),
       ),

@@ -1,5 +1,6 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
+import 'package:spech_interview_task/bar%20graph/axix%20customizations/xaxis_customization.dart';
 import 'package:spech_interview_task/bar%20graph/axix%20customizations/yaxis_customization.dart';
 import 'package:spech_interview_task/bar%20graph/classes/bar_data.dart';
 
@@ -19,6 +20,7 @@ class BarGraph extends StatelessWidget {
       taskStatsApr: taskStatsPercents[3],
     );
     bardata.initialiazeBarData();
+    List<String> months = ["Jan", "Feb", "Mar", "Apr"];
     return BarChart(
       BarChartData(
         titlesData: FlTitlesData(
@@ -32,16 +34,20 @@ class BarGraph extends StatelessWidget {
               showTitles: false,
             ),
           ),
-          bottomTitles: const AxisTitles(
+          bottomTitles: AxisTitles(
             sideTitles: SideTitles(
               showTitles: true,
+              getTitlesWidget: (value, meta) =>
+                  XAxis(months: months, value: value, meta: meta),
             ),
           ),
           leftTitles: AxisTitles(
             sideTitles: SideTitles(
               showTitles: true,
-              getTitlesWidget: (value, meta) =>
-                  Yaxis(taskStatsPercents: taskStatsPercents, meta: meta),
+              getTitlesWidget: (value, meta) => Yaxis(
+                meta: meta,
+                value: value,
+              ),
             ),
           ),
         ),
@@ -57,7 +63,7 @@ class BarGraph extends StatelessWidget {
             .map((data) => BarChartGroupData(x: data.x, barRods: [
                   BarChartRodData(
                     color: Colors.white,
-                    width: 48,
+                    width: 45,
                     toY: data.y * 100,
                   ),
                 ]))

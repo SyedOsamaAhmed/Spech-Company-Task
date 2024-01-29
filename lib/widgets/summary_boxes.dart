@@ -1,8 +1,7 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 
-import 'package:spech_interview_task/resources/app_colors.dart';
+import 'package:spech_interview_task/resources/application_colors.dart';
 
 class SummaryBoxes extends StatelessWidget {
   final Color boxColor;

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 
-import 'package:spech_interview_task/resources/app_colors.dart';
+import 'package:spech_interview_task/resources/application_colors.dart';
 
 import 'package:spech_interview_task/widgets/bar_graph.dart';
 
@@ -120,20 +120,15 @@ class _MainTaskScreenState extends State<MainTaskScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 8.0,
-                    ),
-                    child: SizedBox(
-                      width: MediaQuery.of(context).size.width * 0.32,
-                      child: const Text(
-                        "Task Statistic",
-                        style: TextStyle(
-                            fontSize: 24,
-                            color: ApplicationColors.textColor,
-                            letterSpacing: 0.2,
-                            decoration: TextDecoration.none),
-                      ),
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.32,
+                    child: const Text(
+                      "Task Statistic",
+                      style: TextStyle(
+                          fontSize: 24,
+                          color: ApplicationColors.textColor,
+                          letterSpacing: 0.2,
+                          decoration: TextDecoration.none),
                     ),
                   ),
                   const Padding(
@@ -145,16 +140,19 @@ class _MainTaskScreenState extends State<MainTaskScreen> {
                   ),
                 ],
               ),
-              Padding(
-                padding: const EdgeInsets.only(
-                  top: 12.0,
-                  bottom: 8.0,
+              Flexible(
+                child: Padding(
+                  padding: const EdgeInsets.only(
+                    top: 12.0,
+                    bottom: 8.0,
+                    left: 4.0,
+                  ),
+                  //BarGraph Section
+                  child: SizedBox(
+                      width: MediaQuery.of(context).size.width,
+                      height: MediaQuery.of(context).size.height * 0.35,
+                      child: BarGraph(taskStatsPercents: taskStatsPercentages)),
                 ),
-                //BarGraph Section
-                child: SizedBox(
-                    width: MediaQuery.of(context).size.width * 0.90,
-                    height: MediaQuery.of(context).size.height * 0.30,
-                    child: BarGraph(taskStatsPercents: taskStatsPercentages)),
               ),
 
               //Summary section:
