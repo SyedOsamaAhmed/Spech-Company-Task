@@ -26,25 +26,27 @@ class SummaryBoxes extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Align(
-            alignment: Alignment.topRight,
-            child: SizedBox(
-              width: MediaQuery.of(context).size.width * 0.15,
-              child: MaterialButton(
-                padding: EdgeInsets.zero,
-                elevation: 4.0,
-                shape: const CircleBorder(
-                  side: BorderSide(
-                    width: 0.8,
-                    style: BorderStyle.solid,
-                    color: Colors.white,
+          Flexible(
+            child: Align(
+              alignment: Alignment.topRight,
+              child: SizedBox(
+                width: MediaQuery.of(context).size.width * 0.15,
+                child: MaterialButton(
+                  padding: EdgeInsets.zero,
+                  elevation: 4.0,
+                  shape: const CircleBorder(
+                    side: BorderSide(
+                      width: 0.8,
+                      style: BorderStyle.solid,
+                      color: Colors.white,
+                    ),
                   ),
-                ),
-                onPressed: () {},
-                child: const Icon(
-                  MaterialCommunityIcons.arrow_top_right_thin,
-                  size: 28.0,
-                  color: Color(0xfffbf2e1),
+                  onPressed: () {},
+                  child: const Icon(
+                    MaterialCommunityIcons.arrow_top_right_thin,
+                    size: 28.0,
+                    color: Color(0xfffbf2e1),
+                  ),
                 ),
               ),
             ),
@@ -54,13 +56,13 @@ class SummaryBoxes extends StatelessWidget {
               horizontal: 8.0,
             ),
             child: SizedBox(
-              width: MediaQuery.of(context).size.width * 0.28,
+              width: MediaQuery.of(context).size.width * 0.29,
               child: Text(
                 text,
                 style: const TextStyle(
                   color: Colors.white,
-                  fontSize: 18,
-                  fontWeight: FontWeight.w100,
+                  fontSize: 15,
+                  fontWeight: FontWeight.w300,
                 ),
               ),
             ),

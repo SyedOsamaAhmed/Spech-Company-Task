@@ -148,124 +148,119 @@ class _MainTaskScreenState extends State<MainTaskScreen> {
                   ),
                 ],
               ),
-              Expanded(
-                child: Padding(
-                  padding: const EdgeInsets.only(
-                    top: 12.0,
-                    bottom: 8.0,
-                  ),
-                  //BarGraph Section
-                  child: SizedBox(
-                      width: MediaQuery.of(context).size.width * 0.90,
-                      height: MediaQuery.of(context).size.height * 0.48,
-                      child: BarGraph(taskStatsPercents: taskStatsPercentages)),
+              Padding(
+                padding: const EdgeInsets.only(
+                  top: 12.0,
+                  bottom: 8.0,
                 ),
+                //BarGraph Section
+                child: SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.90,
+                    height: MediaQuery.of(context).size.height * 0.30,
+                    child: BarGraph(taskStatsPercents: taskStatsPercentages)),
               ),
 
               //Summary section:
               SizedBox(
-                  width: MediaQuery.of(context).size.width,
-                  child: Column(
-                    children: [
-                      Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            const Padding(
-                              padding: EdgeInsets.only(
-                                left: 5.0,
+                width: MediaQuery.of(context).size.width,
+                child: Column(
+                  children: [
+                    Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          const Padding(
+                            padding: EdgeInsets.only(
+                              left: 5.0,
+                            ),
+                            child: Text(
+                              "Summary",
+                              style: TextStyle(
+                                fontSize: 25,
+                                fontWeight: FontWeight.w400,
                               ),
-                              child: Text(
-                                "Summary",
-                                style: TextStyle(
-                                  fontSize: 25,
-                                  fontWeight: FontWeight.w400,
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(
+                              right: 7.0,
+                            ),
+                            child: Row(
+                              children: [
+                                SizedBox(
+                                  width:
+                                      MediaQuery.of(context).size.width * 0.10,
+                                  height:
+                                      MediaQuery.of(context).size.height * 0.10,
+                                  child: MaterialButton(
+                                    color: const Color.fromARGB(
+                                        255, 246, 245, 247),
+                                    elevation: 4.0,
+                                    padding: EdgeInsets.zero,
+                                    shape: const CircleBorder(),
+                                    onPressed: () {},
+                                    child: const Icon(
+                                      Feather.sliders,
+                                      size: 20.0,
+                                      color: Color(0xff5e5d61),
+                                    ),
+                                  ),
                                 ),
-                              ),
+                                SizedBox(
+                                  width:
+                                      MediaQuery.of(context).size.width * 0.01,
+                                ),
+                                SizedBox(
+                                  width:
+                                      MediaQuery.of(context).size.width * 0.10,
+                                  height:
+                                      MediaQuery.of(context).size.height * 0.10,
+                                  child: MaterialButton(
+                                    color: const Color.fromARGB(
+                                        255, 246, 245, 247),
+                                    elevation: 4.0,
+                                    shape: const CircleBorder(),
+                                    padding: EdgeInsets.zero,
+                                    onPressed: () {},
+                                    child: const Icon(
+                                      Icons.more_horiz_outlined,
+                                      size: 20.0,
+                                      color: Color(0xff5e5d61),
+                                    ),
+                                  ),
+                                )
+                              ],
                             ),
-                            Padding(
-                              padding: const EdgeInsets.only(
-                                right: 9.0,
-                              ),
-                              child: Row(
-                                children: [
-                                  SizedBox(
-                                    width: MediaQuery.of(context).size.width *
-                                        0.10,
-                                    height: MediaQuery.of(context).size.height *
-                                        0.10,
-                                    child: MaterialButton(
-                                      color: const Color.fromARGB(
-                                          255, 246, 245, 247),
-                                      elevation: 4.0,
-                                      padding: EdgeInsets.zero,
-                                      shape: const CircleBorder(),
-                                      onPressed: () {},
-                                      child: const Icon(
-                                        Feather.sliders,
-                                        size: 20.0,
-                                        color: Color(0xff5e5d61),
-                                      ),
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    width: MediaQuery.of(context).size.width *
-                                        0.01,
-                                  ),
-                                  SizedBox(
-                                    width: MediaQuery.of(context).size.width *
-                                        0.10,
-                                    height: MediaQuery.of(context).size.height *
-                                        0.10,
-                                    child: MaterialButton(
-                                      color: const Color.fromARGB(
-                                          255, 246, 245, 247),
-                                      elevation: 4.0,
-                                      shape: const CircleBorder(),
-                                      padding: EdgeInsets.zero,
-                                      onPressed: () {},
-                                      child: const Icon(
-                                        Icons.more_horiz_outlined,
-                                        size: 20.0,
-                                        color: Color(0xff5e5d61),
-                                      ),
-                                    ),
-                                  )
-                                ],
-                              ),
-                            )
-                          ]),
+                          )
+                        ]),
 
-                      //Summary Boxes Section:
-                      Padding(
-                        padding: const EdgeInsets.only(
-                          top: 15.0,
-                          bottom: 8.0,
+                    //Summary Boxes Section:
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        SizedBox(
+                          width: MediaQuery.of(context).size.width * 0.45,
+                          height: MediaQuery.of(context).size.height * 0.27,
+                          child: const SummaryBoxes(
+                            color: Color(0xffe8b85c),
+                            text: "Weekly Progress",
+                            percentage: "32%",
+                          ),
                         ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            SizedBox(
-                              width: MediaQuery.of(context).size.width * 0.45,
-                              child: const SummaryBoxes(
-                                color: Color(0xffe8b85c),
-                                text: "Weekly Progress",
-                                percentage: "32%",
-                              ),
-                            ),
-                            SizedBox(
-                              width: MediaQuery.of(context).size.width * 0.45,
-                              child: const SummaryBoxes(
-                                color: Color(0xffd8bbc5),
-                                text: "Average Task Execution",
-                                percentage: "78%",
-                              ),
-                            ),
-                          ],
+                        SizedBox(
+                          width: MediaQuery.of(context).size.width * 0.45,
+                          height: MediaQuery.of(context).size.height * 0.27,
+                          child: const SummaryBoxes(
+                            color: Color(0xffd8bbc5),
+                            text: "Average Task Execution",
+                            percentage: "78%",
+                          ),
                         ),
-                      )
-                    ],
-                  ))
+                      ],
+                    )
+                  ],
+                ),
+              ),
             ],
           ),
         ),
